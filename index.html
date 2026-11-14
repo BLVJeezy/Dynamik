@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DynaMik Padel Academy — Stages de padel tout compris, Costa Blanca</title>
+<meta name="description" content="Stages de padel tout compris sur la Costa Blanca : vol, sessions de padel, appartement et voiture. Vous jouez, on s'occupe du reste.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1947; --bg2:#0d2060; --card:#12297a; --line:rgba(255,255,255,.13);
+  --ink:#f4f7ff; --mute:#9eabc9; --sand:#d6f03c; --sand-ink:#0a1947; --court:#2f6bff; --btn:#fff; --btn-ink:#0a1947;
+  --r:6px; --pad:clamp(20px,5vw,72px); --max:1240px;
+  --serif:"Archivo","Manrope",system-ui,sans-serif; --sans:"Manrope",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.025em;line-height:1.08}
+h2{font-size:clamp(30px,4.3vw,54px)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+
+.light{--bg:#f7f5f0;--bg2:#fff;--card:#fff;--line:rgba(10,25,71,.14);--ink:#0a1947;--mute:#55648f;--sand:#1d43d6;--sand-ink:#fff;--btn:#1d43d6;--btn-ink:#fff;background:var(--bg);color:var(--ink)}
+section{padding:clamp(88px,13vw,184px) 0;position:relative}
+.kick{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--sand);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.kick::before{content:"";width:22px;height:1px;background:var(--sand)}
+.lead{color:var(--mute);font-size:clamp(16px,1.5vw,19px);max-width:52ch;margin-top:20px}
+.ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 24px;border-radius:4px;border:0;background:var(--btn);color:var(--btn-ink);font-weight:700;font-size:15px;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s}
+.btn:hover{transform:translateY(-2px);background:var(--sand);color:var(--sand-ink)}
+.light .btn:hover{background:#0a1947;color:#fff}
+.btn .ico{width:18px;height:18px;transition:transform .25s}
+.btn:hover .ico{transform:translateX(3px)}
+.btn.ghost{background:rgba(255,255,255,.08);color:var(--ink);border:1px solid var(--line);backdrop-filter:blur(8px)}
+.btn.ghost:hover{background:rgba(255,255,255,.16)}
+:focus-visible{outline:2px solid var(--sand);outline-offset:3px;border-radius:8px}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(10,25,71,.82);backdrop-filter:blur(16px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:68px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:-.02em;margin-right:auto;white-space:nowrap}
+.logo{display:flex;align-items:center;gap:10px}.logo img{width:40px;height:40px;border-radius:4px;box-shadow:0 0 0 1px var(--line)}.flogo{width:120px;height:120px;border-radius:8px;margin-bottom:16px}
+.logo b{font-weight:700;color:var(--sand);font-style:italic}
+.links{display:none;gap:28px;font-size:14px;font-weight:500}
+.links a{opacity:.8;transition:opacity .2s}.links a:hover{opacity:1}
+.lang{position:relative}
+.lang select{appearance:none;background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:4px;height:40px;padding:0 30px 0 14px;font-size:13px;font-weight:700;cursor:pointer}
+.lang::after{content:"";position:absolute;right:13px;top:16px;width:6px;height:6px;border:solid var(--ink);border-width:0 1.5px 1.5px 0;transform:rotate(45deg);pointer-events:none}
+.lang option{color:#111}
+.nav .btn{min-height:40px;padding:0 18px;font-size:14px;display:none}
+@media(min-width:900px){.links{display:flex}.nav .btn{display:inline-flex}}
+
+/* HERO */
+.hero{min-height:100svh;padding:0;display:flex;align-items:flex-end;isolation:isolate;overflow:hidden}
+.hero-bg{position:absolute;inset:-40px;z-index:-3;background:url(media/poster.jpg) center/cover;filter:blur(38px) brightness(.5) saturate(1.2);display:none}
+.hero-media{position:absolute;inset:0;z-index:-2}
+.hero-media video{width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,25,71,.45) 0%,rgba(10,25,71,0) 20%,rgba(10,25,71,0) 48%,rgba(10,25,71,.85) 82%,var(--bg) 100%)}
+.hero .wrap{width:100%;padding-top:120px;padding-bottom:44px}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:8px 14px;border-radius:4px;background:rgba(10,25,71,.5);border:1px solid var(--line);backdrop-filter:blur(10px);margin-bottom:16px}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--sand);box-shadow:0 0 0 4px rgba(201,242,61,.25)}
+h1{font-size:clamp(36px,9.4vw,52px);line-height:1.04}
+h1 span:last-child{display:block;font-style:italic}
+.hero .lead{color:#fff;max-width:44ch;margin-top:12px;font-size:clamp(15px,1.3vw,18px)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);margin-top:28px;border-top:1px solid var(--line);padding-top:16px}
+.strip div{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;font-weight:600;border-left:1px solid var(--line);text-align:center}
+.strip div:first-child{border:0}
+@media(min-width:900px){
+  h1{font-size:clamp(48px,4.8vw,72px)}
+  .hero-media video{object-position:50% 42%}
+  .hero::after{background:linear-gradient(180deg,rgba(10,25,71,.45) 0%,rgba(10,25,71,0) 20%,rgba(10,25,71,0) 45%,rgba(10,25,71,.8) 85%,var(--bg) 100%)}
+  .hero .wrap{padding-top:140px;padding-bottom:72px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+  .hero-copy{flex:1}.hero-cta{margin-top:0;flex:none}
+  .strip{max-width:480px}
+  .strip div{flex-direction:row;justify-content:center;font-size:13px}
+}
+
+/* INCLUDED bento */
+.head{display:grid;gap:8px;margin-bottom:clamp(36px,5vw,64px)}
+@media(min-width:900px){.head{grid-template-columns:1.2fr 1fr;align-items:end}.head .lead{margin:0 0 8px;justify-self:end}}
+.bento{display:grid;gap:14px}
+.tile{position:relative;border-radius:var(--r);overflow:hidden;background:var(--card);border:1px solid var(--line);min-height:210px;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.tile:hover img{transform:scale(1.05)}
+.tile.pic::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,25,71,0) 30%,rgba(10,25,71,.88))}
+.tile .n{position:absolute;top:22px;left:26px;font:600 15px var(--serif);color:var(--sand)}
+.tile .badge{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:4px;display:grid;place-items:center;background:rgba(10,25,71,.55);border:1px solid var(--line);backdrop-filter:blur(8px)}
+.tile h3{font-size:clamp(22px,2.4vw,30px)}
+.tile p{color:var(--mute);font-size:15px;margin-top:8px;max-width:36ch}
+.tile.pic p{color:#dde5f8}
+.tile.plain{background:radial-gradient(120% 120% at 100% 0%,rgba(255,255,255,.10),transparent 55%),var(--card)}
+@media(min-width:800px){
+  .bento{grid-template-columns:1.1fr 1fr 1fr;grid-template-rows:260px 300px}
+  .t1{grid-row:1/3}.t3{grid-column:2/4;grid-row:2}
+}
+
+/* TRUST */
+.trust{padding:22px 0;border-bottom:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px}
+.tr{display:flex;gap:10px;align-items:flex-start}
+.tr .ico{width:26px;height:26px;padding:5px;background:var(--sand);color:var(--sand-ink);border-radius:4px;stroke-width:2.2}
+.tr p{font-size:12px;line-height:1.35;color:var(--mute)}
+.tr b{display:block;font-size:14px;color:var(--ink);font-weight:700}
+@media(min-width:900px){.trust{padding:28px 0}.trust .wrap{grid-template-columns:repeat(4,1fr);gap:24px}.tr p{font-size:13px}.tr b{font-size:15px}}
+/* STEPS */
+.stps{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:26px 12px}
+.stp{min-width:0}
+.stp figure{position:relative;aspect-ratio:4/3;overflow:hidden;background:#0d2060;border-radius:var(--r)}
+.stp img{width:100%;height:100%;object-fit:cover}
+.ph{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.55)}
+.ph .ico{width:34px;height:34px}
+.sn{position:absolute;left:10px;top:10px;min-width:28px;height:28px;display:grid;place-items:center;border-radius:4px;background:var(--sand);color:var(--sand-ink);font:700 13px var(--serif)}
+.sb{padding:14px 0 0}
+.stp h3{font-size:17px}
+.stp p{font-size:13px;line-height:1.4;color:var(--mute);margin-top:4px}
+@media(min-width:900px){
+  .stps{gap:48px 32px}
+  .stp figure{aspect-ratio:16/9}
+  .sn{left:16px;top:16px;min-width:34px;height:34px;font-size:15px}
+  .sb{padding:22px 0 0}
+  .stp h3{font-size:26px}.stp p{font-size:15px}
+}
+
+/* PACKAGES */
+.packs{display:grid;gap:44px}
+.pack{display:flex;flex-direction:column}
+.pack:hover img{transform:scale(1.04)}
+.pack figure{aspect-ratio:4/3;overflow:hidden;position:relative;border-radius:var(--r)}
+.pack img{width:100%;height:100%;object-fit:cover}
+.pack .tag{position:absolute;top:14px;left:14px;background:var(--sand);color:var(--sand-ink);font-size:12px;font-weight:700;padding:6px 12px;border-radius:4px}
+.pack .body{padding:22px 0 0;display:flex;flex-direction:column;gap:10px;flex:1}
+.pack h3{font-size:24px}
+.pack .meta{display:flex;gap:16px;font-size:13px;font-weight:600;color:var(--sand)}
+.pack p{color:var(--mute);font-size:15px}
+.pack .foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:600}
+.go{width:44px;height:44px;border-radius:4px;display:grid;place-items:center;background:var(--ink);color:var(--bg);border:0;cursor:pointer;transition:background .2s,transform .2s}
+.go:hover{background:var(--sand);color:var(--sand-ink);transform:rotate(-45deg)}
+@media(min-width:900px){.packs{grid-template-columns:repeat(3,1fr);gap:32px}}
+
+/* PROGRAM */
+.program{background:var(--bg2);border-block:1px solid var(--line)}
+.split{display:grid;gap:40px}
+.shot{border-radius:8px;overflow:hidden;position:relative;aspect-ratio:4/5}
+.shot img{width:100%;height:100%;object-fit:cover}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:36px}
+.feats div{background:var(--bg2);padding:22px}
+.feats b{display:block;font:600 18px var(--serif);margin-bottom:4px}
+.feats span{font-size:14px;color:var(--mute)}
+@media(min-width:900px){.split{grid-template-columns:.9fr 1.1fr;gap:clamp(48px,7vw,110px);align-items:center}.split.rev .shot{order:2}}
+
+/* TIMELINE */
+.days{list-style:none;padding:0;position:relative;margin-top:8px}
+.days::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.days li{position:relative;padding:0 0 20px 44px}
+.days li::before{content:"";position:absolute;left:5px;top:30px;width:13px;height:13px;border-radius:50%;border:1.5px solid var(--sand);background:var(--bg)}
+.day{display:flex;gap:18px;align-items:center;padding:6px 0 20px;border-bottom:1px solid var(--line)}
+.day img{width:84px;height:64px;object-fit:cover;border-radius:4px;flex:none}
+.day small{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sand)}
+.day b{display:block;font:600 18px var(--serif)}
+.day span{font-size:14px;color:var(--mute);display:block;line-height:1.4}
+.note{font-size:13px;color:var(--mute);margin-top:16px;padding-left:44px}
+@media(min-width:900px){.tl{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(48px,7vw,110px);align-items:start}.tl .sticky{position:sticky;top:120px}}
+
+/* STAY */
+.stay{padding:0}
+.stay-in{position:relative;min-height:min(92svh,820px);display:flex;align-items:flex-end;isolation:isolate}
+.stay-in>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.stay-in::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg) 0%,rgba(10,25,71,.62) 22%,rgba(10,25,71,.8) 80%,var(--bg) 100%)}
+@media(min-width:900px){.stay-in::after{background:linear-gradient(180deg,var(--bg) 0%,rgba(10,25,71,.15) 25%,rgba(10,25,71,.85) 85%,var(--bg) 100%)}}
+.stay .wrap{width:100%;padding-block:90px;display:grid;gap:32px}
+.stay ul{list-style:none;padding:0;margin-top:26px;display:grid;gap:12px}
+.stay li{display:flex;gap:12px;align-items:center;font-weight:500}
+.stay li .ico{color:var(--sand)}
+.inset{border-radius:8px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 90px -30px #000;max-width:420px}
+@media(min-width:900px){.stay .wrap{grid-template-columns:1.1fr .9fr;align-items:end}.inset{justify-self:end;transform:translateY(70px)}}
+
+/* BOOK */
+.book-card{border-radius:8px;background:linear-gradient(160deg,#1b3fb5,#0d2060);border:1px solid var(--line);padding:clamp(24px,5vw,56px);display:grid;gap:36px}
+form{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+label{display:grid;gap:6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+label.full{grid-column:1/-1}
+input,select.f{height:52px;border-radius:4px;border:1px solid var(--line);background:rgba(10,25,71,.6);padding:0 16px;font-size:16px;font-weight:500;letter-spacing:0;text-transform:none;width:100%;color:var(--ink)}
+select.f option{color:#111}
+input:focus,select.f:focus{outline:0;border-color:var(--sand)}
+.step{display:flex;align-items:center;height:52px;border-radius:4px;border:1px solid var(--line);background:rgba(10,25,71,.6)}
+.step button{width:52px;height:50px;background:none;border:0;font-size:22px;cursor:pointer}
+.step output{flex:1;text-align:center;font-size:16px;font-weight:700;color:var(--ink)}
+form .btn{grid-column:1/-1;justify-content:center;margin-top:6px;min-height:56px}
+.done{display:none}
+.sent form{display:none}.sent .done{display:block}
+.done h3{font-size:26px;margin-bottom:14px}
+.done dl{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:18px 0;font-size:15px}
+.done dt{color:var(--mute)}.done dd{font-weight:600}
+.done p{font-size:13px;color:var(--mute);margin-bottom:18px}
+@media(min-width:900px){.book-card{grid-template-columns:.9fr 1.1fr;align-items:center}}
+@media(max-width:480px){form{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{max-width:860px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font:600 clamp(17px,1.8vw,21px) var(--serif)}
+summary::-webkit-details-marker{display:none}
+summary i{width:36px;height:36px;flex:none;border-radius:4px;border:1px solid var(--line);position:relative;transition:transform .3s,background .3s}
+summary i::before,summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%)}
+summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+details[open] summary i{background:var(--sand)}
+details[open] summary i::after{opacity:0}
+details[open] summary i::before,details[open] summary i::after{background:var(--sand-ink)}
+details p{color:var(--mute);padding:0 56px 26px 0;max-width:62ch}
+
+footer{border-top:1px solid var(--line);padding:56px 0 110px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:end}
+footer .logo{font-size:30px;color:var(--ink);margin:0 0 8px;display:block}
+.mcta{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;justify-content:center;box-shadow:0 14px 40px rgba(0,0,0,.55);transform:translateY(90px);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.mcta.show{transform:none}
+@media(min-width:900px){.mcta{display:none}footer{padding-bottom:56px}}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity 1.3s cubic-bezier(.2,.7,.2,1),transform 1.3s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv img{transform:scale(1.07);transition:transform 2.2s cubic-bezier(.2,.7,.2,1)}.rv.in img{transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero-copy{animation:rise 1.4s .25s cubic-bezier(.2,.7,.2,1) both}.hero-cta{animation:rise 1.4s .55s cubic-bezier(.2,.7,.2,1) both}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv,.rv img{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 3 3 10.5l6.5 2.5L12 20l3-5.5L21 3zM9.5 13 21 3"/></symbol>
+  <symbol id="i-padel" viewBox="0 0 24 24"><circle cx="9.5" cy="9.5" r="6.5"/><path d="m14.2 14.2 6.3 6.3M7.5 8h.01M11.5 8h.01M9.5 11h.01"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 19V6m0 9h18v4m0-4v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11.5" r="1.6"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-3l2-5h12l2 5v3zM4 13h16M6.5 16v2.5M17.5 16v2.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+</svg>
+
+<header class="nav" id="nav"><div class="wrap">
+  <a href="#top" class="logo"><img src="media/logo.jpg" alt="" width="40" height="40"><span>Dyna<b>Mik</b> Padel</span></a>
+  <nav class="links" id="links" aria-label="Main"></nav>
+  <div class="lang"><select id="lang" aria-label="Language">
+    <option value="fr">FR</option><option value="nl">NL</option><option value="en">EN</option><option value="de">DE</option><option value="es">ES</option>
+  </select></div>
+  <a href="#book" class="btn" data-t="cta"></a>
+</div></header>
+
+<main id="top">
+<section class="hero">
+    <div class="wrap">
+    <div class="hero-media">
+      <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="media/poster.jpg" aria-hidden="true">
+        <source src="media/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-copy">
+      <h1 id="h1"></h1>
+      <p class="lead" data-t="hs"></p>
+    </div>
+    <div class="hero-cta">
+      <a href="#book" class="btn"><span data-t="hcta"></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="trust light"><div class="wrap" id="trust"></div></div>
+
+<section id="included"><div class="wrap">
+  <div class="head">
+    <div class="rv"><p class="kick" data-t="in_k"></p><h2 data-t="in_h"></h2></div>
+    <p class="lead rv" data-t="in_p"></p>
+  </div>
+  <ol class="stps" id="stps"></ol>
+</div></section>
+
+<section id="packs" class="light"><div class="wrap">
+  <div class="head">
+    <div class="rv"><p class="kick" data-t="pk_k"></p><h2 data-t="pk_h"></h2></div>
+    <p class="lead rv" data-t="pk_p"></p>
+  </div>
+  <div class="packs" id="packlist"></div>
+</div></section>
+
+<section class="program" id="program"><div class="wrap split">
+  <div class="shot rv"><img src="media/bags.jpg" alt="Padel bags courtside, Costa Blanca" loading="lazy"></div>
+  <div class="rv">
+    <p class="kick" data-t="pr_k"></p><h2 data-t="pr_h"></h2><p class="lead" data-t="pr_p"></p>
+    <div class="feats" id="feats"></div>
+  </div>
+</div></section>
+
+<section id="trip" class="light"><div class="wrap tl">
+  <div class="sticky rv"><p class="kick" data-t="it_k"></p><h2 data-t="it_h"></h2><p class="lead" data-t="it_p"></p></div>
+  <div class="rv"><ol class="days" id="days"></ol><p class="note" data-t="it_note"></p></div>
+</div></section>
+
+<section class="stay" id="stay"><div class="stay-in">
+  <img src="media/terrace.jpg" alt="Terrace with pool and outdoor bar">
+  <div class="wrap">
+    <div class="rv"><p class="kick" data-t="st_k"></p><h2 data-t="st_h"></h2><p class="lead" style="color:#e6dccd" data-t="st_p"></p><ul id="stlist"></ul></div>
+    <div class="inset rv"><img src="media/pool-wide.jpg" alt="Private pool at dusk" loading="lazy"></div>
+  </div>
+</div></section>
+
+<section id="book"><div class="wrap"><div class="book-card rv" id="bookcard">
+  <div><p class="kick" data-t="bk_k"></p><h2 data-t="bk_h"></h2><p class="lead" data-t="bk_p"></p></div>
+  <div>
+    <form id="form" novalidate>
+      <label class="full"><span data-f="0"></span><select class="f" name="pack" id="fpack"></select></label>
+      <label><span data-f="1"></span><select class="f" name="month" id="fmonth"></select></label>
+      <label><span data-f="2"></span><div class="step"><button type="button" id="minus" aria-label="-">−</button><output id="count">2</output><button type="button" id="plus" aria-label="+">+</button></div></label>
+      <label class="full"><span data-f="3"></span><select class="f" name="level" id="flevel"></select></label>
+      <label><span data-f="4"></span><input name="name" autocomplete="name" required></label>
+      <label><span data-f="5"></span><input name="email" type="email" autocomplete="email" required></label>
+      <button class="btn" type="submit"><span data-t="bk_btn"></span><svg class="ico"><use href="#i-arrow"/></svg></button>
+    </form>
+    <div class="done" id="done" aria-live="polite">
+      <h3 data-t="bk_ok"></h3><dl id="recap"></dl><p data-t="bk_note"></p>
+      <button class="btn ghost" type="button" id="edit" data-t="bk_edit"></button>
+    </div>
+  </div>
+</div></div></section>
+
+<section id="faq" class="light"><div class="wrap">
+  <div class="rv"><p class="kick" data-t="fq_k"></p><h2 data-t="fq_h"></h2></div>
+  <div class="faq rv" id="faqlist" style="margin-top:36px"></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><img class="flogo" src="media/logo.jpg" alt="DynaMik Padel — Costa Blanca" width="120" height="120" loading="lazy"><span data-t="ft"></span></div>
+  <span>© <span id="yr"></span> DynaMik Padel Academy</span>
+</div></footer>
+<a href="#book" class="btn mcta" id="mcta"><span data-t="hcta"></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+
+<script>
+const T={
+fr:{nav:["Tout compris","Formules","Programme","Séjour","FAQ"],cta:"Réserver",chip:"Costa Blanca · Espagne",chip2:"Stages de padel tout compris",
+h1:["Padel.","Soleil.","Tout compris."],hsub:"Des stages de padel sur la Costa Blanca où tout est déjà réglé : vol, sessions, appartement et voiture. Il ne vous reste qu'à jouer.",hs:"Stages de padel sur la Costa Blanca. Vol, appartement et voiture inclus.",tr:[["Tout compris","Vol, padel, logement, voiture"],["Un seul interlocuteur","Une seule réservation"],["Tous niveaux","Groupes par niveau"],["Sans engagement","Offre personnalisée"]],incs:["Aller-retour réservé pour vous","Elle vous attend à l'arrivée","Terrasse et piscine","Entraînements et matchs"],hcta:"Planifier mon stage",hcta2:"Voir le programme",
+strip:["Vol","Padel","Appartement","Voiture"],
+in_k:"Tout compris",in_h:"Vous jouez. On s'occupe du reste.",in_p:"Un seul interlocuteur, une seule réservation. Du décollage au dernier match, chaque détail est organisé pour vous.",
+inc:[["Sessions de padel","Entraînements et matchs sur des terrains à deux pas de la mer."],["Vol","Votre vol aller-retour vers la Costa Blanca, réservé pour vous."],["Voiture","Une voiture de location vous attend à l'arrivée."],["Appartement","Un logement soigné, avec terrasse et piscine, pour récupérer comme il faut."]],
+pk_k:"Formules",pk_h:"Choisissez votre stage",pk_p:"Trois façons de partir. Chacune inclut le vol, le padel, l'appartement et la voiture.",
+pk:[["Long week-end","4 jours","Une parenthèse intensive pour jouer, respirer et rentrer rechargé."],["Semaine padel","7 jours","La formule complète : progression réelle, matchs et temps libre au soleil."],["Sur mesure","Dates libres","Clubs, groupes d'amis ou équipes : un stage construit autour de vous."]],
+pk_tag:"Notre conseil",pk_price:"Prix sur demande",pk_who:"Solo, duo ou groupe",
+pr_k:"Programme padel",pr_h:"Progressez là où l'on joue toute l'année",pr_p:"Des sessions pensées pour votre niveau, dans un cadre qui donne envie de rester sur le terrain.",
+pr:[["Tous niveaux","Du premier échange à la compétition."],["Petits groupes","Des groupes homogènes, par niveau."],["Matchs","Mettez en pratique chaque jour."],["Progression","Des repères clairs sur votre jeu."]],
+it_k:"Votre séjour",it_h:"Un programme réglé au détail près",it_p:"Vous savez où vous dormez, quand vous jouez et comment vous vous déplacez — avant même de partir.",it_note:"Exemple de programme. Chaque stage est ajusté à vos dates et à votre niveau.",
+it:[["Jour 1","Arrivée","Vol, voiture, installation."],["Jour 2","Padel & coaching","Technique, puis jeu dirigé."],["Jour 3","Padel & détente","Padel le matin, piscine l'après-midi."],["Jour 4","Matchs","Matchs entre stagiaires."],["Jour 5","Dernier set","Dernière session, puis retour."]],
+st_k:"Séjour",st_h:"Votre base au soleil",st_p:"Après le padel, la piscine. Un appartement choisi pour son confort, son calme et sa lumière.",st:["Piscine et terrasse privées","Intérieur chaleureux et entièrement équipé","À proximité des terrains et de la mer"],
+bk_k:"Réservation",bk_h:"Planifiez votre stage",bk_p:"Dites-nous quand et avec qui vous partez. Vous recevez une proposition complète, sans engagement.",
+f:["Formule","Mois souhaité","Joueurs","Niveau","Nom","E-mail"],lv:["Débutant","Intermédiaire","Avancé","Compétition"],bk_btn:"Demander mon offre",bk_ok:"Votre demande",bk_note:"Aperçu de démonstration : l'envoi des demandes sera activé à la mise en ligne.",bk_edit:"Modifier",
+fq_k:"FAQ",fq_h:"Questions fréquentes",
+fq:[["Qu'est-ce qui est inclus ?","Vol, padel, appartement et voiture. Une seule réservation."],["Quel niveau faut-il avoir ?","Tous les niveaux. Les groupes sont formés par niveau."],["Puis-je venir seul ?","Oui : en solo, à deux ou en groupe."],["Quand partir ?","Toute l'année. Indiquez votre mois, nous proposons des dates."],["Comment réserver ?","Remplissez le formulaire. Vous recevez une proposition personnalisée."]],
+ft:"Stages de padel tout compris sur la Costa Blanca."},
+nl:{nav:["All-in","Formules","Programma","Verblijf","FAQ"],cta:"Boeken",chip:"Costa Blanca · Spanje",chip2:"All-in padelstages",
+h1:["Padel.","Zon.","Alles geregeld."],hsub:"Padelstages aan de Costa Blanca waar alles al geregeld is: vlucht, sessies, appartement en wagen. Jij hoeft alleen nog te spelen.",hs:"Padelstages aan de Costa Blanca. Vlucht, appartement en wagen inbegrepen.",tr:[["All-in","Vlucht, padel, verblijf, wagen"],["Eén aanspreekpunt","Eén boeking"],["Alle niveaus","Groepen per niveau"],["Vrijblijvend","Voorstel op maat"]],incs:["Heen en terug, voor jou geboekt","Staat klaar bij aankomst","Terras en zwembad","Trainingen en matchen"],hcta:"Plan mijn stage",hcta2:"Bekijk het programma",
+strip:["Vlucht","Padel","Appartement","Wagen"],
+in_k:"All-in",in_h:"Jij speelt. Wij regelen de rest.",in_p:"Eén aanspreekpunt, één boeking. Van vertrek tot laatste match is elk detail voor je georganiseerd.",
+inc:[["Padelsessies","Trainingen en matchen op terreinen vlak bij zee."],["Vlucht","Je heen- en terugvlucht naar de Costa Blanca, voor jou geboekt."],["Wagen","Een huurwagen staat klaar bij aankomst."],["Appartement","Een verzorgd verblijf met terras en zwembad om goed te recupereren."]],
+pk_k:"Formules",pk_h:"Kies je stage",pk_p:"Drie manieren om te vertrekken. Telkens met vlucht, padel, appartement en wagen.",
+pk:[["Lang weekend","4 dagen","Een intensieve break om te spelen, op adem te komen en opgeladen terug te keren."],["Padelweek","7 dagen","De volledige formule: echte vooruitgang, matchen en vrije tijd in de zon."],["Op maat","Vrije data","Clubs, vriendengroepen of teams: een stage gebouwd rond jullie."]],
+pk_tag:"Onze tip",pk_price:"Prijs op aanvraag",pk_who:"Solo, duo of groep",
+pr_k:"Padelprogramma",pr_h:"Word beter waar je het hele jaar speelt",pr_p:"Sessies op jouw niveau, in een omgeving waar je niet van het terrein wil.",
+pr:[["Alle niveaus","Van eerste rally tot competitie."],["Kleine groepen","Homogene groepen per niveau."],["Matchen","Elke dag toepassen wat je leert."],["Vooruitgang","Duidelijke werkpunten voor je spel."]],
+it_k:"Je verblijf",it_h:"Een programma dat tot in detail klopt",it_p:"Je weet waar je slaapt, wanneer je speelt en hoe je je verplaatst — nog voor je vertrekt.",it_note:"Voorbeeldprogramma. Elke stage wordt afgestemd op je data en niveau.",
+it:[["Dag 1","Aankomst","Vlucht, wagen, installatie."],["Dag 2","Padel & coaching","Techniek, daarna begeleid spel."],["Dag 3","Padel & ontspanning","Padel in de ochtend, zwembad in de namiddag."],["Dag 4","Matchen","Matchen onder deelnemers."],["Dag 5","Laatste set","Laatste sessie, dan terugreis."]],
+st_k:"Verblijf",st_h:"Jouw uitvalsbasis in de zon",st_p:"Na de padel, het zwembad. Een appartement gekozen om zijn comfort, rust en licht.",st:["Privézwembad en terras","Warm en volledig uitgerust interieur","Dicht bij de terreinen en de zee"],
+bk_k:"Boeking",bk_h:"Plan je stage",bk_p:"Vertel ons wanneer en met wie je vertrekt. Je krijgt een volledig voorstel, vrijblijvend.",
+f:["Formule","Gewenste maand","Spelers","Niveau","Naam","E-mail"],lv:["Beginner","Gemiddeld","Gevorderd","Competitie"],bk_btn:"Vraag mijn offerte aan",bk_ok:"Je aanvraag",bk_note:"Demoversie: het verzenden van aanvragen wordt geactiveerd bij de livegang.",bk_edit:"Aanpassen",
+fq_k:"FAQ",fq_h:"Veelgestelde vragen",
+fq:[["Wat is inbegrepen?","Vlucht, padel, appartement en wagen. Eén boeking."],["Welk niveau heb ik nodig?","Alle niveaus. Groepen worden per niveau gevormd."],["Kan ik alleen komen?","Ja: solo, met twee of in groep."],["Wanneer vertrekken?","Het hele jaar. Geef je maand door, wij stellen data voor."],["Hoe boek ik?","Vul het formulier in. Je krijgt een voorstel op maat."]],
+ft:"All-in padelstages aan de Costa Blanca."},
+en:{nav:["All-in","Packages","Program","Stay","FAQ"],cta:"Book",chip:"Costa Blanca · Spain",chip2:"All-inclusive padel camps",
+h1:["Padel.","Sun.","All arranged."],hsub:"Padel camps on the Costa Blanca where everything is already taken care of: flight, sessions, apartment and car. All that's left is to play.",hs:"Padel camps on the Costa Blanca. Flight, apartment and car included.",tr:[["All-inclusive","Flight, padel, stay, car"],["One contact","One booking"],["All levels","Groups by level"],["No obligation","Personal proposal"]],incs:["Return trip, booked for you","Waiting when you land","Terrace and pool","Training and matches"],hcta:"Plan my camp",hcta2:"See the program",
+strip:["Flight","Padel","Apartment","Car"],
+in_k:"All-in",in_h:"You play. We handle the rest.",in_p:"One contact, one booking. From take-off to the final match, every detail is organised for you.",
+inc:[["Padel sessions","Training and matches on courts a short walk from the sea."],["Flight","Your return flight to the Costa Blanca, booked for you."],["Car","A rental car is waiting when you land."],["Apartment","A carefully chosen stay with terrace and pool, made for recovery."]],
+pk_k:"Packages",pk_h:"Choose your camp",pk_p:"Three ways to go. Each one includes flight, padel, apartment and car.",
+pk:[["Long weekend","4 days","An intensive break to play, breathe and come home recharged."],["Padel week","7 days","The full formula: real progress, matches and free time in the sun."],["Tailor-made","Flexible dates","Clubs, groups of friends or teams: a camp built around you."]],
+pk_tag:"Our pick",pk_price:"Price on request",pk_who:"Solo, duo or group",
+pr_k:"Padel program",pr_h:"Improve where padel is played all year",pr_p:"Sessions built for your level, in a setting that makes you want to stay on court.",
+pr:[["All levels","From first rally to competition."],["Small groups","Matched groups, by level."],["Matches","Put it into practice every day."],["Progress","Clear takeaways on your game."]],
+it_k:"Your trip",it_h:"A schedule arranged down to the detail",it_p:"You know where you sleep, when you play and how you get around — before you even leave.",it_note:"Sample schedule. Every camp is adjusted to your dates and level.",
+it:[["Day 1","Arrival","Flight, car, settling in."],["Day 2","Padel & coaching","Technique, then guided play."],["Day 3","Padel & downtime","Padel in the morning, pool in the afternoon."],["Day 4","Matches","Matches between players."],["Day 5","Final set","Last session, then home."]],
+st_k:"Stay",st_h:"Your base in the sun",st_p:"After padel, the pool. An apartment chosen for its comfort, calm and light.",st:["Private pool and terrace","Warm, fully equipped interior","Close to the courts and the sea"],
+bk_k:"Booking",bk_h:"Plan your camp",bk_p:"Tell us when and with whom you're travelling. You get a complete proposal, no strings attached.",
+f:["Package","Preferred month","Players","Level","Name","Email"],lv:["Beginner","Intermediate","Advanced","Competition"],bk_btn:"Request my offer",bk_ok:"Your request",bk_note:"Demo preview: sending requests will be switched on at launch.",bk_edit:"Edit",
+fq_k:"FAQ",fq_h:"Frequently asked",
+fq:[["What's included?","Flight, padel, apartment and car. One booking."],["What level do I need?","All levels. Groups are formed by level."],["Can I come alone?","Yes: solo, as a pair or as a group."],["When should I go?","All year round. Tell us your month and we'll suggest dates."],["How do I book?","Fill in the form. You'll receive a personal proposal."]],
+ft:"All-inclusive padel camps on the Costa Blanca."},
+de:{nav:["All-in","Pakete","Programm","Unterkunft","FAQ"],cta:"Buchen",chip:"Costa Blanca · Spanien",chip2:"All-inclusive Padel-Camps",
+h1:["Padel.","Sonne.","Alles geregelt."],hsub:"Padel-Camps an der Costa Blanca, bei denen alles schon organisiert ist: Flug, Sessions, Apartment und Mietwagen. Sie müssen nur noch spielen.",hs:"Padel-Camps an der Costa Blanca. Flug, Apartment und Mietwagen inklusive.",tr:[["All-inclusive","Flug, Padel, Unterkunft, Auto"],["Ein Ansprechpartner","Eine Buchung"],["Alle Niveaus","Gruppen nach Niveau"],["Unverbindlich","Persönliches Angebot"]],incs:["Hin und zurück, für Sie gebucht","Steht bei Ankunft bereit","Terrasse und Pool","Training und Matches"],hcta:"Mein Camp planen",hcta2:"Zum Programm",
+strip:["Flug","Padel","Apartment","Auto"],
+in_k:"All-in",in_h:"Sie spielen. Wir kümmern uns um den Rest.",in_p:"Ein Ansprechpartner, eine Buchung. Vom Abflug bis zum letzten Match ist jedes Detail für Sie organisiert.",
+inc:[["Padel-Sessions","Training und Matches auf Plätzen ganz nah am Meer."],["Flug","Ihr Hin- und Rückflug an die Costa Blanca, für Sie gebucht."],["Auto","Ein Mietwagen steht bei der Ankunft bereit."],["Apartment","Eine gepflegte Unterkunft mit Terrasse und Pool zum Erholen."]],
+pk_k:"Pakete",pk_h:"Wählen Sie Ihr Camp",pk_p:"Drei Wege in die Sonne. Jeweils mit Flug, Padel, Apartment und Auto.",
+pk:[["Langes Wochenende","4 Tage","Eine intensive Auszeit: spielen, durchatmen, erholt zurückkehren."],["Padel-Woche","7 Tage","Das volle Paket: echter Fortschritt, Matches und freie Zeit in der Sonne."],["Nach Maß","Freie Termine","Clubs, Freundesgruppen oder Teams: ein Camp, das um Sie herum gebaut wird."]],
+pk_tag:"Unser Tipp",pk_price:"Preis auf Anfrage",pk_who:"Solo, zu zweit oder Gruppe",
+pr_k:"Padel-Programm",pr_h:"Besser werden, wo ganzjährig gespielt wird",pr_p:"Sessions für Ihr Niveau, in einer Umgebung, in der man den Platz nicht verlassen will.",
+pr:[["Alle Niveaus","Vom ersten Ballwechsel bis zum Wettkampf."],["Kleine Gruppen","Homogene Gruppen nach Niveau."],["Matches","Jeden Tag in die Praxis umsetzen."],["Fortschritt","Klare Erkenntnisse zu Ihrem Spiel."]],
+it_k:"Ihre Reise",it_h:"Ein Ablauf, der bis ins Detail stimmt",it_p:"Sie wissen, wo Sie schlafen, wann Sie spielen und wie Sie unterwegs sind — schon vor der Abreise.",it_note:"Beispielprogramm. Jedes Camp wird an Ihre Termine und Ihr Niveau angepasst.",
+it:[["Tag 1","Ankunft","Flug, Auto, Einzug."],["Tag 2","Padel & Coaching","Technik, dann angeleitetes Spiel."],["Tag 3","Padel & Erholung","Padel am Morgen, Pool am Nachmittag."],["Tag 4","Matches","Matches unter den Teilnehmern."],["Tag 5","Letzter Satz","Letzte Session, dann Heimreise."]],
+st_k:"Unterkunft",st_h:"Ihre Basis in der Sonne",st_p:"Nach dem Padel der Pool. Ein Apartment, ausgewählt für Komfort, Ruhe und Licht.",st:["Privater Pool und Terrasse","Warmes, voll ausgestattetes Interieur","Nah an den Plätzen und am Meer"],
+bk_k:"Buchung",bk_h:"Planen Sie Ihr Camp",bk_p:"Sagen Sie uns, wann und mit wem Sie reisen. Sie erhalten ein komplettes Angebot, unverbindlich.",
+f:["Paket","Wunschmonat","Spieler","Niveau","Name","E-Mail"],lv:["Anfänger","Mittelstufe","Fortgeschritten","Wettkampf"],bk_btn:"Angebot anfragen",bk_ok:"Ihre Anfrage",bk_note:"Demo-Vorschau: Der Versand von Anfragen wird zum Launch aktiviert.",bk_edit:"Ändern",
+fq_k:"FAQ",fq_h:"Häufige Fragen",
+fq:[["Was ist inbegriffen?","Flug, Padel, Apartment und Mietwagen. Eine Buchung."],["Welches Niveau brauche ich?","Alle Niveaus. Die Gruppen werden nach Niveau gebildet."],["Kann ich allein kommen?","Ja: solo, zu zweit oder als Gruppe."],["Wann reisen?","Ganzjährig. Nennen Sie Ihren Monat, wir schlagen Termine vor."],["Wie buche ich?","Formular ausfüllen. Sie erhalten ein persönliches Angebot."]],
+ft:"All-inclusive Padel-Camps an der Costa Blanca."},
+es:{nav:["Todo incluido","Fórmulas","Programa","Alojamiento","FAQ"],cta:"Reservar",chip:"Costa Blanca · España",chip2:"Stages de pádel todo incluido",
+h1:["Pádel.","Sol.","Todo incluido."],hsub:"Stages de pádel en la Costa Blanca con todo ya resuelto: vuelo, sesiones, apartamento y coche. Solo te queda jugar.",hs:"Stages de pádel en la Costa Blanca. Vuelo, apartamento y coche incluidos.",tr:[["Todo incluido","Vuelo, pádel, alojamiento, coche"],["Un solo contacto","Una sola reserva"],["Todos los niveles","Grupos por nivel"],["Sin compromiso","Propuesta personalizada"]],incs:["Ida y vuelta, reservado para ti","Te espera a la llegada","Terraza y piscina","Entrenamientos y partidos"],hcta:"Planificar mi stage",hcta2:"Ver el programa",
+strip:["Vuelo","Pádel","Apartamento","Coche"],
+in_k:"Todo incluido",in_h:"Tú juegas. Nosotros nos ocupamos del resto.",in_p:"Un solo contacto, una sola reserva. Del despegue al último partido, cada detalle está organizado para ti.",
+inc:[["Sesiones de pádel","Entrenamientos y partidos en pistas a un paso del mar."],["Vuelo","Tu vuelo de ida y vuelta a la Costa Blanca, reservado para ti."],["Coche","Un coche de alquiler te espera a la llegada."],["Apartamento","Un alojamiento cuidado, con terraza y piscina, para recuperar bien."]],
+pk_k:"Fórmulas",pk_h:"Elige tu stage",pk_p:"Tres formas de viajar. Todas incluyen vuelo, pádel, apartamento y coche.",
+pk:[["Fin de semana largo","4 días","Una escapada intensa para jugar, respirar y volver con energía."],["Semana de pádel","7 días","La fórmula completa: progreso real, partidos y tiempo libre al sol."],["A medida","Fechas libres","Clubes, grupos de amigos o equipos: un stage creado a tu alrededor."]],
+pk_tag:"Recomendado",pk_price:"Precio a consultar",pk_who:"Solo, pareja o grupo",
+pr_k:"Programa de pádel",pr_h:"Mejora donde se juega todo el año",pr_p:"Sesiones pensadas para tu nivel, en un entorno del que no querrás salir.",
+pr:[["Todos los niveles","Del primer peloteo a la competición."],["Grupos reducidos","Grupos homogéneos, por nivel."],["Partidos","Ponlo en práctica cada día."],["Progreso","Claves claras sobre tu juego."]],
+it_k:"Tu estancia",it_h:"Un programa cuidado al detalle",it_p:"Sabes dónde duermes, cuándo juegas y cómo te mueves, incluso antes de salir.",it_note:"Programa de ejemplo. Cada stage se ajusta a tus fechas y a tu nivel.",
+it:[["Día 1","Llegada","Vuelo, coche e instalación."],["Día 2","Pádel y coaching","Técnica y juego dirigido."],["Día 3","Pádel y descanso","Pádel por la mañana, piscina por la tarde."],["Día 4","Partidos","Partidos entre participantes."],["Día 5","Último set","Última sesión y regreso."]],
+st_k:"Alojamiento",st_h:"Tu base al sol",st_p:"Después del pádel, la piscina. Un apartamento elegido por su confort, su calma y su luz.",st:["Piscina y terraza privadas","Interior cálido y totalmente equipado","Cerca de las pistas y del mar"],
+bk_k:"Reserva",bk_h:"Planifica tu stage",bk_p:"Cuéntanos cuándo y con quién viajas. Recibirás una propuesta completa, sin compromiso.",
+f:["Fórmula","Mes deseado","Jugadores","Nivel","Nombre","E-mail"],lv:["Principiante","Intermedio","Avanzado","Competición"],bk_btn:"Solicitar mi oferta",bk_ok:"Tu solicitud",bk_note:"Vista de demostración: el envío de solicitudes se activará con el lanzamiento.",bk_edit:"Modificar",
+fq_k:"FAQ",fq_h:"Preguntas frecuentes",
+fq:[["¿Qué está incluido?","Vuelo, pádel, apartamento y coche. Una sola reserva."],["¿Qué nivel necesito?","Todos los niveles. Los grupos se forman por nivel."],["¿Puedo ir solo?","Sí: solo, en pareja o en grupo."],["¿Cuándo viajar?","Todo el año. Dinos el mes y te proponemos fechas."],["¿Cómo reservo?","Rellena el formulario. Recibirás una propuesta personalizada."]],
+ft:"Stages de pádel todo incluido en la Costa Blanca."}
+};
+const $=s=>document.querySelector(s), ico=n=>`<svg class="ico"><use href="#i-${n}"/></svg>`;
+const anchors=["#included","#packs","#program","#stay","#faq"], sIco=["plane","padel","bed","car"];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+let lang="fr", count=2;
+function render(){
+  const t=T[lang]; document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t[e.dataset.t]);
+  document.querySelectorAll("[data-f]").forEach(e=>e.textContent=t.f[e.dataset.f]);
+  $("#links").innerHTML=t.nav.map((n,i)=>`<a href="${anchors[i]}">${n}</a>`).join("");
+  $("#h1").innerHTML=t.h1.map(w=>`<span>${w}</span>`).join(" ");
+  $("#trust").innerHTML=t.tr.map(x=>`<div class="tr">${ico("check")}<p><b>${x[0]}</b><span>${x[1]}</span></p></div>`).join("");
+  const so=[[1,"plane","flight"],[2,"car","car"],[3,"bed","lounge-wide"],[0,"padel","corridor"]];
+  $("#stps").innerHTML=so.map((o,i)=>`<li class="stp rv" style="--d:${i*.1}s"><figure>${o[2]?`<img src="media/${o[2]}.jpg" alt="" loading="lazy">`:`<span class="ph">${ico(o[1])}</span>`}<span class="sn">${i+1}</span></figure><div class="sb"><h3>${t.inc[o[0]][0]}</h3><p>${t.incs[i]}</p></div></li>`).join("");
+  const pi=["sea","aerial","doors"];
+  $("#packlist").innerHTML=t.pk.map((p,i)=>`<article class="pack rv" style="--d:${i*.1}s"><figure><img src="media/${pi[i]}.jpg" alt="" loading="lazy">${i==1?`<span class="tag">${t.pk_tag}</span>`:""}</figure><div class="body"><h3>${p[0]}</h3><div class="meta"><span>${p[1]}</span><span>${t.pk_who}</span></div><p>${p[2]}</p><div class="foot"><span>${t.pk_price}</span><button class="go" data-pack="${i}" aria-label="${t.cta}: ${p[0]}">${ico("arrow")}</button></div></div></article>`).join("");
+  $("#feats").innerHTML=t.pr.map(p=>`<div><b>${p[0]}</b><span>${p[1]}</span></div>`).join("");
+  const di=["sea","corridor","pool-wide","players","doors"];
+  $("#days").innerHTML=t.it.map((d,i)=>`<li><div class="day"><img src="media/${di[i]}.jpg" alt="" loading="lazy"><div><small>${d[0]}</small><b>${d[1]}</b><span>${d[2]}</span></div></div></li>`).join("");
+  $("#stlist").innerHTML=t.st.map(s=>`<li>${ico("check")}${s}</li>`).join("");
+  $("#faqlist").innerHTML=t.fq.map((q,i)=>`<details ${i==0?"open":""}><summary>${q[0]}<i></i></summary><p>${q[1]}</p></details>`).join("");
+  const keep=[$("#fpack").value,$("#fmonth").value,$("#flevel").value];
+  $("#fpack").innerHTML=t.pk.map((p,i)=>`<option value="${i}">${p[0]} · ${p[1]}</option>`).join("");
+  const now=new Date(), fmt=new Intl.DateTimeFormat(lang,{month:"long",year:"numeric"});
+  $("#fmonth").innerHTML=Array.from({length:12},(_,i)=>`<option value="${i}">${fmt.format(new Date(now.getFullYear(),now.getMonth()+1+i,1))}</option>`).join("");
+  $("#flevel").innerHTML=t.lv.map((l,i)=>`<option value="${i}">${l}</option>`).join("");
+  $("#fpack").value=keep[0]||"1"; $("#fmonth").value=keep[1]||"0"; $("#flevel").value=keep[2]||"1";
+  if($("#bookcard").classList.contains("sent")) recap();
+  document.querySelectorAll(".rv:not(.in)").forEach(e=>io.observe(e));
+}
+function recap(){
+  const t=T[lang], f=$("#form"), txt=s=>s.options[s.selectedIndex].text, esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+  const rows=[[t.f[0],txt($("#fpack"))],[t.f[1],txt($("#fmonth"))],[t.f[2],count],[t.f[3],txt($("#flevel"))],[t.f[4],esc(f.name.value)],[t.f[5],esc(f.email.value)]];
+  $("#recap").innerHTML=rows.map(r=>`<dt>${r[0]}</dt><dd>${r[1]}</dd>`).join("");
+}
+try{const s=localStorage.getItem("dmk-lang"); if(T[s]) lang=s; else {const n=(navigator.language||"").slice(0,2); if(T[n]) lang=n;}}catch(e){}
+$("#lang").value=lang; render();
+$("#lang").onchange=e=>{lang=e.target.value; try{localStorage.setItem("dmk-lang",lang)}catch(_){} render();};
+$("#yr").textContent=new Date().getFullYear();
+$("#minus").onclick=()=>{count=Math.max(1,count-1);$("#count").textContent=count};
+$("#plus").onclick=()=>{count=Math.min(12,count+1);$("#count").textContent=count};
+$("#packlist").addEventListener("click",e=>{const b=e.target.closest("[data-pack]"); if(!b)return; $("#fpack").value=b.dataset.pack; $("#bookcard").classList.remove("sent"); $("#book").scrollIntoView();});
+$("#form").addEventListener("submit",e=>{e.preventDefault(); const f=e.target; if(!f.checkValidity()){f.reportValidity();return;}
+  /* TODO launch: POST the request to your endpoint (Resend / CRM) here */
+  recap(); $("#bookcard").classList.add("sent");});
+$("#edit").onclick=()=>$("#bookcard").classList.remove("sent");
+const v=$("#heroVideo"); v.muted=true; const kick=()=>v.play().catch(()=>{}); kick(); document.addEventListener("touchstart",kick,{once:true,passive:true});
+document.querySelectorAll(".rv:not(.in)").forEach(e=>io.observe(e));
+addEventListener("scroll",()=>{const y=scrollY; $("#nav").classList.toggle("solid",y>30); const b=$("#book").getBoundingClientRect(); $("#mcta").classList.toggle("show",y>innerHeight*.7&&(b.top>innerHeight||b.bottom<0));},{passive:true});
+</script>
+</body>
+</html>
