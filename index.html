@@ -113,23 +113,27 @@ h1 span:last-child{display:block;font-style:italic}
   .tr{flex-direction:row;justify-content:center;gap:14px;padding:30px 16px;font-size:15px;border-bottom:0!important;border-right:1px solid var(--line)}
   .tr:last-child{border-right:0}
 }
-/* STEPS */
-.stps{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:26px 12px}
-.stp{min-width:0}
-.stp figure{position:relative;aspect-ratio:4/3;overflow:hidden;background:#0d2060;border-radius:var(--r)}
-.stp img{width:100%;height:100%;object-fit:cover}
-.ph{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.55)}
-.ph .ico{width:34px;height:34px}
-.sn{position:absolute;left:10px;top:10px;min-width:28px;height:28px;display:grid;place-items:center;border-radius:4px;background:var(--sand);color:var(--sand-ink);font:700 13px var(--serif)}
-.sb{padding:14px 0 0}
-.stp h3{font-size:17px}
-.stp p{font-size:13px;line-height:1.4;color:var(--mute);margin-top:4px}
+/* JOURNEY */
+.stps{list-style:none;padding:0;display:grid;gap:56px}
+.jr{position:relative}
+.jr figure{aspect-ratio:16/10;overflow:hidden;border-radius:var(--r);background:#0d2060}
+.jr img{width:100%;height:100%;object-fit:cover}
+.sn{position:absolute;left:12px;top:12px;width:34px;height:34px;display:grid;place-items:center;border-radius:4px;background:var(--sand);color:var(--sand-ink);font:700 15px var(--serif);z-index:1}
+.jb{padding-top:22px}
+.js{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--sand);margin-bottom:10px}
+.jb h3{font-size:clamp(26px,3vw,38px)}
+.jb>p:not(.js){color:var(--mute);margin-top:10px;max-width:44ch}
+.jb ul{list-style:none;padding:0;margin-top:18px;display:grid;gap:10px;border-top:1px solid var(--line);padding-top:18px}
+.jb li{display:flex;gap:12px;align-items:center;font-weight:500;font-size:15px}
+.jb li .ico{width:18px;height:18px;color:var(--sand);stroke-width:2}
 @media(min-width:900px){
-  .stps{gap:48px 32px}
-  .stp figure{aspect-ratio:16/9}
-  .sn{left:16px;top:16px;min-width:34px;height:34px;font-size:15px}
-  .sb{padding:22px 0 0}
-  .stp h3{font-size:26px}.stp p{font-size:15px}
+  .stps{gap:0}
+  .jr{display:grid;grid-template-columns:1fr 1fr;gap:120px;align-items:center;padding:44px 0}
+  .jr::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line)}
+  .jr:first-child::before{top:50%}.jr:last-child::before{bottom:50%}
+  .jr:nth-child(even) figure{order:2}
+  .sn{left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;font-size:17px}
+  .jb{padding-top:0}
 }
 
 /* PACKAGES */
@@ -376,7 +380,7 @@ footer .logo{font-size:30px;color:var(--ink);margin:0 0 8px;display:block}
 <script>
 const T={
 fr:{nav:["Tout compris","Formules","Programme","Séjour","FAQ"],cta:"Réserver",chip:"Costa Blanca · Espagne",chip2:"Stages de padel tout compris",
-h1:["Padel.","Soleil.","Tout compris."],hsub:"Des stages de padel sur la Costa Blanca où tout est déjà réglé : vol, sessions, appartement et voiture. Il ne vous reste qu'à jouer.",hs:"Stages de padel sur la Costa Blanca. Vol, appartement et voiture inclus.",tr:[["Tout compris","Vol, padel, logement, voiture"],["Un seul interlocuteur","Une seule réservation"],["Tous niveaux","Groupes par niveau"],["Sans engagement","Offre personnalisée"]],incs:["Aller-retour réservé pour vous","Elle vous attend à l'arrivée","Terrasse et piscine","Entraînements et matchs"],nx:["Suivant", "Retour", "Vos coordonnées", "Votre stage"],hcta:"Planifier mon stage",hcta2:"Voir le programme",
+h1:["Padel.","Soleil.","Tout compris."],hsub:"Des stages de padel sur la Costa Blanca où tout est déjà réglé : vol, sessions, appartement et voiture. Il ne vous reste qu'à jouer.",hs:"Stages de padel sur la Costa Blanca. Vol, appartement et voiture inclus.",tr:[["Tout compris","Vol, padel, logement, voiture"],["Un seul interlocuteur","Une seule réservation"],["Tous niveaux","Groupes par niveau"],["Sans engagement","Offre personnalisée"]],incs:["Aller-retour réservé pour vous","Elle vous attend à l'arrivée","Terrasse et piscine","Entraînements et matchs"],nx:["Suivant", "Retour", "Vos coordonnées", "Votre stage"],jr:{"k":"Votre parcours","h":"Votre séjour, étape par étape","p":"Quatre étapes, une seule réservation. Voici ce qui vous attend.","s":"Étape","st":[["Vous décollez","Votre vol aller-retour vers la Costa Blanca est réservé pour vous.",["Vol aller-retour","Réservé par nos soins","Inclus dans votre formule"]],["Vous prenez la route","Une voiture de location vous attend à l'arrivée, pour rester libre de vos mouvements.",["Voiture de location","Disponible dès l'arrivée","Pour tout le séjour"]],["Vous vous installez","Un appartement soigné devient votre base, entre les terrains et la mer.",["Appartement privé","Terrasse et piscine","Entièrement équipé"]],["Vous jouez","Des sessions de padel adaptées à votre niveau, avec coaching et matchs.",["Groupes par niveau","Coaching et matchs","Terrains en bord de mer"]]]},hcta:"Planifier mon stage",hcta2:"Voir le programme",
 strip:["Vol","Padel","Appartement","Voiture"],
 in_k:"Tout compris",in_h:"Vous jouez. On s'occupe du reste.",in_p:"Un seul interlocuteur, une seule réservation. Du décollage au dernier match, chaque détail est organisé pour vous.",
 inc:[["Sessions de padel","Entraînements et matchs sur des terrains à deux pas de la mer."],["Vol","Votre vol aller-retour vers la Costa Blanca, réservé pour vous."],["Voiture","Une voiture de location vous attend à l'arrivée."],["Appartement","Un logement soigné, avec terrasse et piscine, pour récupérer comme il faut."]],
@@ -394,7 +398,7 @@ fq_k:"FAQ",fq_h:"Questions fréquentes",
 fq:[["Qu'est-ce qui est inclus ?","Vol, padel, appartement et voiture. Une seule réservation."],["Quel niveau faut-il avoir ?","Tous les niveaux. Les groupes sont formés par niveau."],["Puis-je venir seul ?","Oui : en solo, à deux ou en groupe."],["Quand partir ?","Toute l'année. Indiquez votre mois, nous proposons des dates."],["Comment réserver ?","Remplissez le formulaire. Vous recevez une proposition personnalisée."]],
 ft:"Stages de padel tout compris sur la Costa Blanca."},
 nl:{nav:["All-in","Formules","Programma","Verblijf","FAQ"],cta:"Boeken",chip:"Costa Blanca · Spanje",chip2:"All-in padelstages",
-h1:["Padel.","Zon.","Alles geregeld."],hsub:"Padelstages aan de Costa Blanca waar alles al geregeld is: vlucht, sessies, appartement en wagen. Jij hoeft alleen nog te spelen.",hs:"Padelstages aan de Costa Blanca. Vlucht, appartement en wagen inbegrepen.",tr:[["All-in","Vlucht, padel, verblijf, wagen"],["Eén aanspreekpunt","Eén boeking"],["Alle niveaus","Groepen per niveau"],["Vrijblijvend","Voorstel op maat"]],incs:["Heen en terug, voor jou geboekt","Staat klaar bij aankomst","Terras en zwembad","Trainingen en matchen"],nx:["Volgende", "Terug", "Je gegevens", "Jouw stage"],hcta:"Plan mijn stage",hcta2:"Bekijk het programma",
+h1:["Padel.","Zon.","Alles geregeld."],hsub:"Padelstages aan de Costa Blanca waar alles al geregeld is: vlucht, sessies, appartement en wagen. Jij hoeft alleen nog te spelen.",hs:"Padelstages aan de Costa Blanca. Vlucht, appartement en wagen inbegrepen.",tr:[["All-in","Vlucht, padel, verblijf, wagen"],["Eén aanspreekpunt","Eén boeking"],["Alle niveaus","Groepen per niveau"],["Vrijblijvend","Voorstel op maat"]],incs:["Heen en terug, voor jou geboekt","Staat klaar bij aankomst","Terras en zwembad","Trainingen en matchen"],nx:["Volgende", "Terug", "Je gegevens", "Jouw stage"],jr:{"k":"Jouw reis","h":"Je verblijf, stap voor stap","p":"Vier stappen, één boeking. Dit staat je te wachten.","s":"Stap","st":[["Je vertrekt","Je heen- en terugvlucht naar de Costa Blanca wordt voor jou geboekt.",["Heen- en terugvlucht","Door ons geboekt","Inbegrepen in je formule"]],["Je gaat op weg","Bij aankomst staat een huurwagen klaar, zodat je vrij blijft om te gaan en staan waar je wil.",["Huurwagen","Klaar bij aankomst","Voor het hele verblijf"]],["Je installeert je","Een verzorgd appartement wordt je uitvalsbasis, tussen de terreinen en de zee.",["Privéappartement","Terras en zwembad","Volledig uitgerust"]],["Je speelt","Padelsessies op jouw niveau, met coaching en matchen.",["Groepen per niveau","Coaching en matchen","Terreinen aan zee"]]]},hcta:"Plan mijn stage",hcta2:"Bekijk het programma",
 strip:["Vlucht","Padel","Appartement","Wagen"],
 in_k:"All-in",in_h:"Jij speelt. Wij regelen de rest.",in_p:"Eén aanspreekpunt, één boeking. Van vertrek tot laatste match is elk detail voor je georganiseerd.",
 inc:[["Padelsessies","Trainingen en matchen op terreinen vlak bij zee."],["Vlucht","Je heen- en terugvlucht naar de Costa Blanca, voor jou geboekt."],["Wagen","Een huurwagen staat klaar bij aankomst."],["Appartement","Een verzorgd verblijf met terras en zwembad om goed te recupereren."]],
@@ -412,7 +416,7 @@ fq_k:"FAQ",fq_h:"Veelgestelde vragen",
 fq:[["Wat is inbegrepen?","Vlucht, padel, appartement en wagen. Eén boeking."],["Welk niveau heb ik nodig?","Alle niveaus. Groepen worden per niveau gevormd."],["Kan ik alleen komen?","Ja: solo, met twee of in groep."],["Wanneer vertrekken?","Het hele jaar. Geef je maand door, wij stellen data voor."],["Hoe boek ik?","Vul het formulier in. Je krijgt een voorstel op maat."]],
 ft:"All-in padelstages aan de Costa Blanca."},
 en:{nav:["All-in","Packages","Program","Stay","FAQ"],cta:"Book",chip:"Costa Blanca · Spain",chip2:"All-inclusive padel camps",
-h1:["Padel.","Sun.","All arranged."],hsub:"Padel camps on the Costa Blanca where everything is already taken care of: flight, sessions, apartment and car. All that's left is to play.",hs:"Padel camps on the Costa Blanca. Flight, apartment and car included.",tr:[["All-inclusive","Flight, padel, stay, car"],["One contact","One booking"],["All levels","Groups by level"],["No obligation","Personal proposal"]],incs:["Return trip, booked for you","Waiting when you land","Terrace and pool","Training and matches"],nx:["Next", "Back", "Your details", "Your camp"],hcta:"Plan my camp",hcta2:"See the program",
+h1:["Padel.","Sun.","All arranged."],hsub:"Padel camps on the Costa Blanca where everything is already taken care of: flight, sessions, apartment and car. All that's left is to play.",hs:"Padel camps on the Costa Blanca. Flight, apartment and car included.",tr:[["All-inclusive","Flight, padel, stay, car"],["One contact","One booking"],["All levels","Groups by level"],["No obligation","Personal proposal"]],incs:["Return trip, booked for you","Waiting when you land","Terrace and pool","Training and matches"],nx:["Next", "Back", "Your details", "Your camp"],jr:{"k":"Your journey","h":"Your stay, step by step","p":"Four steps, one booking. Here is what to expect.","s":"Step","st":[["You take off","Your return flight to the Costa Blanca is booked for you.",["Return flight","Booked by us","Included in your package"]],["You hit the road","A rental car is waiting when you land, so you stay free to move.",["Rental car","Ready on arrival","For the whole stay"]],["You settle in","A carefully chosen apartment becomes your base, between the courts and the sea.",["Private apartment","Terrace and pool","Fully equipped"]],["You play","Padel sessions matched to your level, with coaching and matches.",["Groups by level","Coaching and matches","Courts by the sea"]]]},hcta:"Plan my camp",hcta2:"See the program",
 strip:["Flight","Padel","Apartment","Car"],
 in_k:"All-in",in_h:"You play. We handle the rest.",in_p:"One contact, one booking. From take-off to the final match, every detail is organised for you.",
 inc:[["Padel sessions","Training and matches on courts a short walk from the sea."],["Flight","Your return flight to the Costa Blanca, booked for you."],["Car","A rental car is waiting when you land."],["Apartment","A carefully chosen stay with terrace and pool, made for recovery."]],
@@ -430,7 +434,7 @@ fq_k:"FAQ",fq_h:"Frequently asked",
 fq:[["What's included?","Flight, padel, apartment and car. One booking."],["What level do I need?","All levels. Groups are formed by level."],["Can I come alone?","Yes: solo, as a pair or as a group."],["When should I go?","All year round. Tell us your month and we'll suggest dates."],["How do I book?","Fill in the form. You'll receive a personal proposal."]],
 ft:"All-inclusive padel camps on the Costa Blanca."},
 de:{nav:["All-in","Pakete","Programm","Unterkunft","FAQ"],cta:"Buchen",chip:"Costa Blanca · Spanien",chip2:"All-inclusive Padel-Camps",
-h1:["Padel.","Sonne.","Alles geregelt."],hsub:"Padel-Camps an der Costa Blanca, bei denen alles schon organisiert ist: Flug, Sessions, Apartment und Mietwagen. Sie müssen nur noch spielen.",hs:"Padel-Camps an der Costa Blanca. Flug, Apartment und Mietwagen inklusive.",tr:[["All-inclusive","Flug, Padel, Unterkunft, Auto"],["Ein Ansprechpartner","Eine Buchung"],["Alle Niveaus","Gruppen nach Niveau"],["Unverbindlich","Persönliches Angebot"]],incs:["Hin und zurück, für Sie gebucht","Steht bei Ankunft bereit","Terrasse und Pool","Training und Matches"],nx:["Weiter", "Zurück", "Ihre Daten", "Ihr Camp"],hcta:"Mein Camp planen",hcta2:"Zum Programm",
+h1:["Padel.","Sonne.","Alles geregelt."],hsub:"Padel-Camps an der Costa Blanca, bei denen alles schon organisiert ist: Flug, Sessions, Apartment und Mietwagen. Sie müssen nur noch spielen.",hs:"Padel-Camps an der Costa Blanca. Flug, Apartment und Mietwagen inklusive.",tr:[["All-inclusive","Flug, Padel, Unterkunft, Auto"],["Ein Ansprechpartner","Eine Buchung"],["Alle Niveaus","Gruppen nach Niveau"],["Unverbindlich","Persönliches Angebot"]],incs:["Hin und zurück, für Sie gebucht","Steht bei Ankunft bereit","Terrasse und Pool","Training und Matches"],nx:["Weiter", "Zurück", "Ihre Daten", "Ihr Camp"],jr:{"k":"Ihre Reise","h":"Ihr Aufenthalt, Schritt für Schritt","p":"Vier Schritte, eine Buchung. Das erwartet Sie.","s":"Schritt","st":[["Sie heben ab","Ihr Hin- und Rückflug an die Costa Blanca wird für Sie gebucht.",["Hin- und Rückflug","Von uns gebucht","Im Paket enthalten"]],["Sie fahren los","Bei der Ankunft steht ein Mietwagen bereit, damit Sie flexibel bleiben.",["Mietwagen","Bereit bei Ankunft","Für den gesamten Aufenthalt"]],["Sie kommen an","Ein gepflegtes Apartment wird Ihre Basis, zwischen Plätzen und Meer.",["Privates Apartment","Terrasse und Pool","Voll ausgestattet"]],["Sie spielen","Padel-Sessions auf Ihrem Niveau, mit Coaching und Matches.",["Gruppen nach Niveau","Coaching und Matches","Plätze am Meer"]]]},hcta:"Mein Camp planen",hcta2:"Zum Programm",
 strip:["Flug","Padel","Apartment","Auto"],
 in_k:"All-in",in_h:"Sie spielen. Wir kümmern uns um den Rest.",in_p:"Ein Ansprechpartner, eine Buchung. Vom Abflug bis zum letzten Match ist jedes Detail für Sie organisiert.",
 inc:[["Padel-Sessions","Training und Matches auf Plätzen ganz nah am Meer."],["Flug","Ihr Hin- und Rückflug an die Costa Blanca, für Sie gebucht."],["Auto","Ein Mietwagen steht bei der Ankunft bereit."],["Apartment","Eine gepflegte Unterkunft mit Terrasse und Pool zum Erholen."]],
@@ -448,7 +452,7 @@ fq_k:"FAQ",fq_h:"Häufige Fragen",
 fq:[["Was ist inbegriffen?","Flug, Padel, Apartment und Mietwagen. Eine Buchung."],["Welches Niveau brauche ich?","Alle Niveaus. Die Gruppen werden nach Niveau gebildet."],["Kann ich allein kommen?","Ja: solo, zu zweit oder als Gruppe."],["Wann reisen?","Ganzjährig. Nennen Sie Ihren Monat, wir schlagen Termine vor."],["Wie buche ich?","Formular ausfüllen. Sie erhalten ein persönliches Angebot."]],
 ft:"All-inclusive Padel-Camps an der Costa Blanca."},
 es:{nav:["Todo incluido","Fórmulas","Programa","Alojamiento","FAQ"],cta:"Reservar",chip:"Costa Blanca · España",chip2:"Stages de pádel todo incluido",
-h1:["Pádel.","Sol.","Todo incluido."],hsub:"Stages de pádel en la Costa Blanca con todo ya resuelto: vuelo, sesiones, apartamento y coche. Solo te queda jugar.",hs:"Stages de pádel en la Costa Blanca. Vuelo, apartamento y coche incluidos.",tr:[["Todo incluido","Vuelo, pádel, alojamiento, coche"],["Un solo contacto","Una sola reserva"],["Todos los niveles","Grupos por nivel"],["Sin compromiso","Propuesta personalizada"]],incs:["Ida y vuelta, reservado para ti","Te espera a la llegada","Terraza y piscina","Entrenamientos y partidos"],nx:["Siguiente", "Atrás", "Tus datos", "Tu stage"],hcta:"Planificar mi stage",hcta2:"Ver el programa",
+h1:["Pádel.","Sol.","Todo incluido."],hsub:"Stages de pádel en la Costa Blanca con todo ya resuelto: vuelo, sesiones, apartamento y coche. Solo te queda jugar.",hs:"Stages de pádel en la Costa Blanca. Vuelo, apartamento y coche incluidos.",tr:[["Todo incluido","Vuelo, pádel, alojamiento, coche"],["Un solo contacto","Una sola reserva"],["Todos los niveles","Grupos por nivel"],["Sin compromiso","Propuesta personalizada"]],incs:["Ida y vuelta, reservado para ti","Te espera a la llegada","Terraza y piscina","Entrenamientos y partidos"],nx:["Siguiente", "Atrás", "Tus datos", "Tu stage"],jr:{"k":"Tu viaje","h":"Tu estancia, paso a paso","p":"Cuatro pasos, una sola reserva. Esto es lo que te espera.","s":"Paso","st":[["Despegas","Tu vuelo de ida y vuelta a la Costa Blanca queda reservado para ti.",["Vuelo de ida y vuelta","Reservado por nosotros","Incluido en tu fórmula"]],["Te pones en marcha","Un coche de alquiler te espera a la llegada, para moverte con libertad.",["Coche de alquiler","Listo a la llegada","Para toda la estancia"]],["Te instalas","Un apartamento cuidado será tu base, entre las pistas y el mar.",["Apartamento privado","Terraza y piscina","Totalmente equipado"]],["Juegas","Sesiones de pádel adaptadas a tu nivel, con coaching y partidos.",["Grupos por nivel","Coaching y partidos","Pistas junto al mar"]]]},hcta:"Planificar mi stage",hcta2:"Ver el programa",
 strip:["Vuelo","Pádel","Apartamento","Coche"],
 in_k:"Todo incluido",in_h:"Tú juegas. Nosotros nos ocupamos del resto.",in_p:"Un solo contacto, una sola reserva. Del despegue al último partido, cada detalle está organizado para ti.",
 inc:[["Sesiones de pádel","Entrenamientos y partidos en pistas a un paso del mar."],["Vuelo","Tu vuelo de ida y vuelta a la Costa Blanca, reservado para ti."],["Coche","Un coche de alquiler te espera a la llegada."],["Apartamento","Un alojamiento cuidado, con terraza y piscina, para recuperar bien."]],
@@ -477,8 +481,9 @@ function render(){
   $("#links").innerHTML=t.nav.map((n,i)=>`<a href="${anchors[i]}">${n}</a>`).join("");
   $("#h1").innerHTML=t.h1.map(w=>`<span>${w}</span>`).join(" ");
   $("#trust").innerHTML=t.tr.map((x,i)=>`<div class="tr">${ico(["case","user","levels","shield"][i])}<span>${x[0]}</span></div>`).join("");
-  const so=[[1,"plane","flight"],[2,"car","car"],[3,"bed","lounge-wide"],[0,"padel","corridor"]];
-  $("#stps").innerHTML=so.map((o,i)=>`<li class="stp rv" style="--d:${i*.1}s"><figure>${o[2]?`<img src="media/${o[2]}.jpg" alt="" loading="lazy">`:`<span class="ph">${ico(o[1])}</span>`}<span class="sn">${i+1}</span></figure><div class="sb"><h3>${t.inc[o[0]][0]}</h3><p>${t.incs[i]}</p></div></li>`).join("");
+  const J=t.jr, jq=k=>document.querySelector(`#included [data-t="${k}"]`);
+  jq("in_k").textContent=J.k; jq("in_h").textContent=J.h; jq("in_p").textContent=J.p;
+  $("#stps").innerHTML=J.st.map((x,i)=>`<li class="jr rv"><figure><img src="media/${["flight","car","lounge-wide","corridor"][i]}.jpg" alt="" loading="lazy"></figure><span class="sn">${i+1}</span><div class="jb"><p class="js">${J.s} ${i+1}</p><h3>${x[0]}</h3><p>${x[1]}</p><ul>${x[2].map(b=>`<li>${ico("check")}${b}</li>`).join("")}</ul></div></li>`).join("");
   const pi=["sea","aerial","doors"];
   $("#packlist").innerHTML=t.pk.map((p,i)=>`<article class="pack rv" style="--d:${i*.1}s"><figure><img src="media/${pi[i]}.jpg" alt="" loading="lazy">${i==1?`<span class="tag">${t.pk_tag}</span>`:""}</figure><div class="body"><h3>${p[0]}</h3><div class="meta"><span>${p[1]}</span><span>${t.pk_who}</span></div><p>${p[2]}</p><div class="foot"><span>${t.pk_price}</span><button class="go" data-pack="${i}" aria-label="${t.cta}: ${p[0]}">${ico("arrow")}</button></div></div></article>`).join("");
   $("#feats").innerHTML=t.pr.map(p=>`<div><b>${p[0]}</b><span>${p[1]}</span></div>`).join("");
