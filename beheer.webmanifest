@@ -1,0 +1,21 @@
+{
+  "id": "dynamik-beheer",
+  "name": "DynaMik Padel Beheer",
+  "short_name": "DynaMik Padel Beheer",
+  "description": "Pas de teksten en foto's van de website van DynaMik Padel aan.",
+  "start_url": "/beheer.html",
+  "scope": "/beheer",
+  "display": "standalone",
+  "orientation": "any",
+  "lang": "nl",
+  "background_color": "#071235",
+  "theme_color": "#0A1947",
+  "icons": [
+    {
+      "src": "/media/logo.jpg",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
